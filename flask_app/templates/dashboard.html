@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+</head>
+<body>
+    <h1>Welcome <span>{{ user.first_name }}</span></h1>
+    <h2>These are the recipes</h2>
+    <a href="/create">Create</a>
+    <a href="/logout">Logout</a>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Under 30 Minutes?</th>
+            <th>Actions</th>
+        </tr>
+        {% for r in user.recipes %}
+        <tr>
+            <td>{{ r.name }}</td>
+            <td>{{ r.under_thirty }}</td>
+            <td><a href="/view/{{ user.id }}">view instructions</a><a href="/edit">edit</a><a href="/delete">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
