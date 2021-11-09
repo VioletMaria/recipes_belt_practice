@@ -5,8 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
+    <style>
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome {{ user.first_name }}</h1>
+    <h1>Welcome {{ user.first_name }}!</h1>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+    {% for r in user.recipes %}
+    <table>
+        <h2>{{ r.name }}</h2>
+        <tr>
+            <th>Description:</th>
+            <td>{{ r.description }}</td>
+        </tr>
+        <tr>
+            <th>Under 30 minutes:</th>
+            <td>{{ r.under_thirty }}</td>
+        </tr>
+        <tr>
+            <th>Instructions:</th>
+            <td>{{ r.instructions }}</td>
+        </tr>
+        <tr>
+            <th>Date Made:</th>
+            <td>{{ r.created_at }}</td>
+        </tr>
+    </table>
+    {% endfor %}
 </body>
 </html>

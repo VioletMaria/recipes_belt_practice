@@ -76,6 +76,7 @@ class User:
             recipe_data = {
                 "id":ur["recipes.id"],
                 "name":ur["name"],
+                "description":ur["description"],
                 "under_thirty":ur["under_thirty"],
                 "instructions":ur["instructions"],
                 "created_at":ur["recipes.created_at"],
