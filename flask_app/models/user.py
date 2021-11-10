@@ -1,6 +1,6 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask_app.models.recipe import Recipe
 from flask import flash, request
+from flask_app.models.recipe import Recipe
 import re
 email_regex = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 pass_regex = re.compile(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
@@ -59,12 +59,6 @@ class User:
         if len(user_db) < 1:
             return False
         return cls(user_db[0])
-
-    # @classmethod
-    # def get_user(cls,data):
-    #     query = "SELECT * FROM users WHERE id= %(user_id)s"
-    #     user_db = connectToMySQL("users_recipes").query_db(query,data)
-    #     return cls(user_db[0])
 
     @classmethod
     def get_user_recipe(cls,data):

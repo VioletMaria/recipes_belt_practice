@@ -8,6 +8,15 @@
 </head>
 <body>
     <h1>Add New Recipe</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color:red">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %} 
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
     <form action="/create" method="post">
     <label>Name:</label>
     <input type="text" name="name">

@@ -23,7 +23,7 @@
         <tr>
             <td>{{ r.name }}</td>
             <td>{{ r.under_thirty }}</td>
-            <td><a href="/view/{{ user.id }}">view instructions</a><a href="/edit/{{ user.id }}">edit</a><a href="/delete">delete</a></td>
+            <td><a href="/view/{{ user.id }}">view instructions</a><a href="/recipes/{{ r.id }}">edit</a><a href="/delete/{{ r.id }}">delete</a></td>
         </tr>
         {% endfor %}
     </table>

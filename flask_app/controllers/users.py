@@ -42,6 +42,7 @@ def login():
         return redirect("/")
     # if passwords match, set user_id into session
     session["current_id"] = user_in_db.id
+    session["email"] = user_in_db.email
     return redirect("/dashboard")
 
 
